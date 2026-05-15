@@ -1,0 +1,8 @@
+node_modules/
+*.mp3
+*.wav
+*.pcm
+output/
+logs/
+*.log
+.env

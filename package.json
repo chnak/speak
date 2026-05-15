@@ -1,0 +1,35 @@
+{
+  "name": "@chnak/speak",
+  "version": "1.0.0",
+  "description": "Stream audio player with persistent speaker instance",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "node test.cjs",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "speaker": "^0.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": ["audio", "speaker", "stream", "playback", "typescript"],
+  "author": "",
+  "license": "MIT"
+}
