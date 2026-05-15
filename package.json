@@ -1,7 +1,7 @@
 {
   "name": "@chnak/speak",
   "version": "1.0.0",
-  "description": "Stream audio player with persistent speaker instance",
+  "description": "Node.js 流媒体音频播放器，持久化 Speaker 实例",
   "type": "module",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -30,6 +30,10 @@
     "typescript": "^5.0.0"
   },
   "keywords": ["audio", "speaker", "stream", "playback", "typescript"],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chnak/speak"
+  },
+  "author": "chnak",
   "license": "MIT"
 }

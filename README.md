@@ -1,4 +1,4 @@
-# speak-engine
+# @chnak/speak
 
 Node.js 流媒体音频播放器，持久化 Speaker 实例。
 
@@ -13,7 +13,7 @@ Node.js 流媒体音频播放器，持久化 Speaker 实例。
 ## 安装
 
 ```bash
-npm install speak-engine
+npm install @chnak/speak
 ```
 
 ## 使用
@@ -21,7 +21,7 @@ npm install speak-engine
 ### ESM
 
 ```javascript
-import { CustomSpeaker } from 'speak-engine';
+import { CustomSpeaker } from '@chnak/speak';
 
 const speaker = new CustomSpeaker('audio/L16;rate=32000', 2);
 
@@ -42,7 +42,7 @@ speaker.end();
 ### CommonJS
 
 ```javascript
-const { CustomSpeaker } = require('speak-engine');
+const { CustomSpeaker } = require('@chnak/speak');
 
 const speaker = new CustomSpeaker('audio/L16;rate=32000', 2);
 speaker.push(audioBuffer);
