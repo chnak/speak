@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"D:\\\\Date\\\\20260408\\\\speak\" && npm install 2>&1)",
+      "Bash(cd /d/Date/20260408/aa && npm install 2>&1)",
+      "Bash(npm view:*)",
+      "Bash(node src/test-diff.js 2>&1)",
+      "Bash(cd \"D:\\\\Date\\\\20260408\\\\speak\" && node test.js 2>&1)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"const contrib = require\\('blessed-contrib'\\); console.log\\(Object.keys\\(contrib\\).filter\\(k => k.toLowerCase\\(\\).includes\\('edit'\\)\\)\\)\")",
+      "Bash(node -e \"const contrib = require\\('blessed-contrib'\\); console.log\\(Object.keys\\(contrib\\)\\)\")",
+      "Bash(node -e \"const contrib = require\\('blessed-contrib'\\); console.log\\(Object.keys\\(contrib\\).filter\\(k => k.toLowerCase\\(\\).includes\\('input'\\) || k.toLowerCase\\(\\).includes\\('text'\\) || k.toLowerCase\\(\\).includes\\('form'\\)\\)\\)\")",
+      "Bash(node src/textarea-test.js 2>&1)",
+      "Bash(cd \"D:\\\\Date\\\\20260408\\\\speak\" && npm run build 2>&1)",
+      "Bash(node -e \"const contrib = require\\('blessed-contrib'\\); console.log\\(contrib.editor || contrib.markdown\\)\")",
+      "Bash(cd \"D:\\\\Date\\\\20260408\\\\speak\" && node dist/cjs/test.js 2>&1)",
+      "Bash(cd \"D:\\\\Date\\\\20260408\\\\speak\" && node test.cjs 2>&1)",
+      "Bash(node src/custom-input.js 2>&1 | head -30)",
+      "Bash(node src/custom-input.js 2>&1)",
+      "Bash(cmd //c \"cd /d D:\\\\Date\\\\20260408\\\\aa && node src/custom-input.js\" 2>&1)",
+      "Bash(cd \"D:\\\\Date\\\\20260408\\\\speak\" && npm run build && npm test 2>&1)"
+    ]
+  }
+}

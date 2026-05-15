@@ -1,5 +1,8 @@
-import Speaker from 'speaker';
+import SpeakerModule from 'speaker';
 import { EventEmitter } from 'events';
+
+// Internal speaker instance type (from 'speaker' package)
+type SpeakerInstance = InstanceType<typeof SpeakerModule>;
 
 /**
  * Speaker configuration options matching the speaker package
@@ -30,22 +33,22 @@ export interface SpeakerState {
 }
 
 /**
- * Custom speaker that plays audio continuously using a persistent speaker instance.
+ * Speaker that plays audio continuously with a persistent instance.
  * Supports streaming audio buffers with automatic queue management.
  *
  * @example
  * ```typescript
- * import { CustomSpeaker } from 'speak-engine';
+ * import { Speaker } from '@chnak/speak';
  *
- * const speaker = new CustomSpeaker('audio/L16;rate=32000', 2);
+ * const speaker = new Speaker('audio/L16;rate=32000', 2);
  * speaker.push(audioBuffer);
  * ```
  */
-export class CustomSpeaker extends EventEmitter {
+export class Speaker extends EventEmitter {
   private options: AudioParams;
   private isPlaying: boolean = false;
   private bufferQueue: Buffer[] = [];
-  private speaker: Speaker | null = null;
+  private speaker: SpeakerInstance | null = null;
 
   /**
    * Create a new CustomSpeaker instance
@@ -94,13 +97,13 @@ export class CustomSpeaker extends EventEmitter {
         signed: this.options.signed
       };
 
-      this.speaker = new Speaker(speakerOptions);
+      this.speaker = new SpeakerModule(speakerOptions) as SpeakerInstance;
 
-      this.speaker.on('finish', () => {
+      this.speaker!.on('finish', () => {
         this.emit('finish');
       });
 
-      this.speaker.on('error', (err: Error) => {
+      this.speaker!.on('error', (err: Error) => {
         console.error('Speaker error:', err);
         this._reinitializeSpeaker();
       });
@@ -116,7 +119,7 @@ export class CustomSpeaker extends EventEmitter {
   private _reinitializeSpeaker(): void {
     try {
       if (this.speaker) {
-        this.speaker.removeAllListeners();
+        this.speaker!.removeAllListeners();
         this.speaker = null;
       }
 
@@ -152,14 +155,14 @@ export class CustomSpeaker extends EventEmitter {
     }
 
     try {
-      this.speaker.write(buffer);
+      this.speaker!.write(buffer);
       console.log(`Playing: ${buffer.length} bytes, queue: ${this.bufferQueue.length}`);
 
       if (this.bufferQueue.length > 0) {
         this._playNextBuffer();
       } else {
         const silence = this.createSilenceBuffer(300, this.options.sampleRate, this.options.channels);
-        this.speaker.write(silence);
+        this.speaker!.write(silence);
         this.isPlaying = false;
         this.emit('drain');
       }
@@ -214,7 +217,7 @@ export class CustomSpeaker extends EventEmitter {
 
     if (this.speaker) {
       try {
-        this.speaker.end();
+        this.speaker!.end();
         this.speaker = null;
       } catch (e) {
         console.error('Error ending speaker:', e);
@@ -251,4 +254,4 @@ export class CustomSpeaker extends EventEmitter {
   }
 }
 
-export default CustomSpeaker;
+export default Speaker;

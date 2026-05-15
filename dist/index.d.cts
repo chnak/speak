@@ -17,18 +17,18 @@ interface SpeakerState {
     queueSize: number;
 }
 /**
- * Custom speaker that plays audio continuously using a persistent speaker instance.
+ * Speaker that plays audio continuously with a persistent instance.
  * Supports streaming audio buffers with automatic queue management.
  *
  * @example
  * ```typescript
- * import { CustomSpeaker } from 'speak-engine';
+ * import { Speaker } from '@chnak/speak';
  *
- * const speaker = new CustomSpeaker('audio/L16;rate=32000', 2);
+ * const speaker = new Speaker('audio/L16;rate=32000', 2);
  * speaker.push(audioBuffer);
  * ```
  */
-declare class CustomSpeaker extends EventEmitter {
+declare class Speaker extends EventEmitter {
     private options;
     private isPlaying;
     private bufferQueue;
@@ -83,4 +83,4 @@ declare class CustomSpeaker extends EventEmitter {
     getOptions(): AudioParams;
 }
 
-export { type AudioParams, CustomSpeaker, type SpeakerState, CustomSpeaker as default };
+export { type AudioParams, Speaker, type SpeakerState, Speaker as default };

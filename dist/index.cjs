@@ -30,13 +30,13 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  CustomSpeaker: () => CustomSpeaker,
+  Speaker: () => Speaker,
   default: () => index_default
 });
 module.exports = __toCommonJS(index_exports);
 var import_speaker = __toESM(require("speaker"), 1);
 var import_events = require("events");
-var CustomSpeaker = class extends import_events.EventEmitter {
+var Speaker = class extends import_events.EventEmitter {
   /**
    * Create a new CustomSpeaker instance
    * @param config - Audio config string (e.g., 'audio/L16;rate=32000') or AudioParams object
@@ -215,9 +215,9 @@ var CustomSpeaker = class extends import_events.EventEmitter {
     return { ...this.options };
   }
 };
-var index_default = CustomSpeaker;
+var index_default = Speaker;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  CustomSpeaker
+  Speaker
 });
 //# sourceMappingURL=index.cjs.map

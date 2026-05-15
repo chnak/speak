@@ -21,9 +21,9 @@ npm install @chnak/speak
 ### ESM
 
 ```javascript
-import { CustomSpeaker } from '@chnak/speak';
+import { Speaker } from '@chnak/speak';
 
-const speaker = new CustomSpeaker('audio/L16;rate=32000', 2);
+const speaker = new Speaker('audio/L16;rate=32000', 2);
 
 // 推送 PCM 音频缓冲区
 speaker.push(audioBuffer);
@@ -42,15 +42,15 @@ speaker.end();
 ### CommonJS
 
 ```javascript
-const { CustomSpeaker } = require('@chnak/speak');
+const { Speaker } = require('@chnak/speak');
 
-const speaker = new CustomSpeaker('audio/L16;rate=32000', 2);
+const speaker = new Speaker('audio/L16;rate=32000', 2);
 speaker.push(audioBuffer);
 ```
 
 ## API
 
-### `new CustomSpeaker(config?, channels?)`
+### `new Speaker(config?, channels?)`
 
 创建扬声器实例。
 

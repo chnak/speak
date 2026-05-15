@@ -1,7 +1,7 @@
 // src/index.ts
-import Speaker from "speaker";
+import SpeakerModule from "speaker";
 import { EventEmitter } from "events";
-var CustomSpeaker = class extends EventEmitter {
+var Speaker = class extends EventEmitter {
   /**
    * Create a new CustomSpeaker instance
    * @param config - Audio config string (e.g., 'audio/L16;rate=32000') or AudioParams object
@@ -46,7 +46,7 @@ var CustomSpeaker = class extends EventEmitter {
         sampleRate: this.options.sampleRate,
         signed: this.options.signed
       };
-      this.speaker = new Speaker(speakerOptions);
+      this.speaker = new SpeakerModule(speakerOptions);
       this.speaker.on("finish", () => {
         this.emit("finish");
       });
@@ -180,9 +180,9 @@ var CustomSpeaker = class extends EventEmitter {
     return { ...this.options };
   }
 };
-var index_default = CustomSpeaker;
+var index_default = Speaker;
 export {
-  CustomSpeaker,
+  Speaker,
   index_default as default
 };
 //# sourceMappingURL=index.js.map
